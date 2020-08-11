@@ -13,8 +13,8 @@ const Ex1 = () => {
     /**
      * 创建网格模型
      */
-    const geometry1 = new THREE.SphereGeometry(60, 40, 40); // 创建一个球体几何对象
-    const geometry2 = new THREE.BoxGeometry(50, 100, 100); // 创建一个立方体几何对象Geometry
+    const geometry1 = new THREE.SphereGeometry(20, 40, 40); // 创建一个球体几何对象
+    const geometry2 = new THREE.BoxGeometry(50, 100, 50); // 创建一个立方体几何对象Geometry
     const material = new THREE.MeshLambertMaterial({
       color: 0x0000ff,
     }); // 材质对象Material
@@ -22,8 +22,22 @@ const Ex1 = () => {
     const mesh2 = new THREE.Mesh(geometry2, new THREE.MeshLambertMaterial({
       color: 0x00ffff,
     })); // 网格模型对象Mesh
+    const mesh3 = new THREE.Mesh(new THREE.BoxGeometry(20, 20, 50), new THREE.MeshLambertMaterial({
+      color: 0xff0000,
+    })); // 网格模型对象Mesh
+    const mesh4 = new THREE.Mesh(new THREE.BoxGeometry(20, 20, 50), new THREE.MeshLambertMaterial({
+      color: 0xff0000,
+    })); // 网格模型对象Mesh
     const axisHelper = new THREE.AxesHelper(250);
-    scene.add(mesh1, mesh2, axisHelper); // 网格模型添加到场景中
+    // mesh1.translateX(20);
+    mesh1.translateY(70);
+    mesh3.translateY(20);
+    mesh3.translateZ(40);
+    mesh3.rotateY(10);
+    mesh4.translateY(20);
+    mesh4.translateZ(-40);
+    mesh4.rotateY(-10);
+    scene.add(mesh1, mesh2, mesh3, mesh4, axisHelper); // 网格模型添加到场景中
     /**
      * 光源设置
      */
