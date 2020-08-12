@@ -17,8 +17,15 @@ const Ex1 = () => {
     const geometry2 = new THREE.BoxGeometry(50, 100, 50); // 创建一个立方体几何对象Geometry
     const material = new THREE.MeshLambertMaterial({
       color: 0x0000ff,
+      // specular: 0x4488ee,
+      // shininess: 12,
     }); // 材质对象Material
-    const mesh1 = new THREE.Mesh(geometry1, material); // 网格模型对象Mesh
+    const sphereMaterial = new THREE.MeshPhongMaterial({
+      color: 0x0000ff,
+      specular: 0x4488ee,
+      shininess: 12,
+    });// 材质对象
+    const mesh1 = new THREE.Mesh(geometry1, sphereMaterial); // 网格模型对象Mesh
     const mesh2 = new THREE.Mesh(geometry2, new THREE.MeshLambertMaterial({
       color: 0x00ffff,
     })); // 网格模型对象Mesh
